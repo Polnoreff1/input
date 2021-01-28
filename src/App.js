@@ -10,6 +10,10 @@ import {useState} from 'react';
 
     let row = <td></td>;
 
+
+
+
+
 //var twiceNumbers = numbers.map(x => x * 2); // [ 2, 6, 10 ]
 
 
