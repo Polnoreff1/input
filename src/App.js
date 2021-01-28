@@ -28,13 +28,7 @@ const listItems = numbers.map((numbers) =>
     </div>
 );
 
-
-let Colum = null;
-let Row = null;
-
 function TextField(props) {
-
-
     return (
         <div>
             <p>Столбцы</p>
@@ -42,7 +36,6 @@ function TextField(props) {
         </div>
     );
 }
-
 
 function App() {
     const [width, set_width] = useState("");
@@ -91,7 +84,6 @@ function App() {
     //     <table>{td}{tr}</table>,
     //     document.getElementById('root')
     // );
-
 }
 
 function show(width, height){
