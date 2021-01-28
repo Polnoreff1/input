@@ -2,16 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import ReactDOM from 'react-dom';
 import {useState} from 'react';
+import React, {Component} from "react";
 
 
+let yach = <tr></tr>;
 
-
-    let yach=<tr></tr>;
-
-    let row = <td></td>;
-
-
-
+let row = <td></td>;
 
 
 //var twiceNumbers = numbers.map(x => x * 2); // [ 2, 6, 10 ]
@@ -32,32 +28,40 @@ const listItems = numbers.map((numbers) =>
     </div>
 );
 
-function Tb(props)
-{
-
-}
 
 let Colum = null;
 let Row = null;
 
+function TextField(props) {
+
+
+    return (
+        <div>
+            <p>Столбцы</p>
+            <input value={props.value} onChange={e => props.set_value(e.target.value) } id="Col"></input>
+        </div>
+    );
+}
+
+
 function App() {
+    const [width, set_width] = useState("");
+    const [height, set_height] = useState("");
     return (
         <div>
             <header>
                 <form>
-                    <table id="zakazTable">
+                    <table>
                         <tr>
                             <td><p>Введите размерность таблицы &nbsp;&nbsp;&nbsp; </p></td>
                             <td>
-                                <p>Столбцы</p>
-                                <input value="" onChange={onchange} id="Col"></input>
+                                <TextField value = {height} set_value = {set_height} ></TextField>
                             </td>
                             <td>
-                                <p>Строки</p>
-                                <input value="" onChange={onchange} id="Row"></input>
+                                <TextField value = {width} set_value = {set_width}></TextField>
                             </td>
                             <td>
-                                <button onClick="{/*show()*/}">Вывод</button>
+                                <button onClick={()=>show(width,height)}>Вывод</button>
                             </td>
                         </tr>
                     </table>
@@ -71,15 +75,28 @@ function App() {
             </header>
         </div>
     );
-    Colum = document.getElementById("Col").value;
-    Row = document.getElementById("Row").value;
 
+    // const numbers1 = [1, 2, 3, 4, 5];
+    // const numbers2 = [1, 2, 3, 4, 5];
+    //
+    // const td = numbers1.map((numbers1) =>
+    //     <td>{numbers1}</td>
+    // );
+    //
+    // const tr = numbers2.map((numbers2) =>
+    //     <tr>{td}</tr>
+    // );
+    //
+    // ReactDOM.render(
+    //     <table>{td}{tr}</table>,
+    //     document.getElementById('root')
+    // );
 
 }
 
-// function show(){
-//     alert(Colum);
-//     alert(Row);
-// }
+function show(width, height){
+    alert(width);
+    alert(height);
+}
 
 export default App;
